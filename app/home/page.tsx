@@ -9,11 +9,14 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
   } from "@/components/ui/dropdown-menu"
+import { Skeleton } from '@/components/ui/skeleton'
 import React from 'react'
 
 export default async function home() {
     const session = await auth()
     console.log(session?.user)
+    console.log(session?.user?.image)
+    const dp = session?.user?.image
     if(!session?.user)
         return(
             <div className='flex absolute bg-gradient-to-r from-blue-200 to-blue-50 h-screen w-screen items-center justify-center font-bold text-2xl'>
@@ -31,8 +34,9 @@ export default async function home() {
         <DropdownMenu>
             <DropdownMenuTrigger>
                 <Avatar className='h-8 w-8'>
-                    <AvatarImage src={session?.user?.image ?? undefined} />
-                    <AvatarFallback>CN</AvatarFallback>
+                    <AvatarImage src={dp ?? undefined} />
+                    <AvatarFallback><Skeleton className="w-[30px] h-[30px] rounded-full" />
+                    </AvatarFallback>
                 </Avatar>
             </DropdownMenuTrigger>
             <DropdownMenuContent>

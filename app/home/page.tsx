@@ -1,5 +1,6 @@
 import { auth } from '@/auth'
 import { SignOut } from '@/components/signout'
+import Tiptap from '@/components/tiptap'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar'
 import {
     DropdownMenu,
@@ -26,7 +27,7 @@ export default async function home() {
         )
   return (
     <div>
-        <nav className="flex justify-between items-center py-4 px-16 bg-transparent">
+        <nav className="flex justify-between items-center px-16 bg-transparent">
         <div>
           <h1 className="text-2xl font-bold text-black">dotBrain</h1>
         </div>
@@ -48,7 +49,7 @@ export default async function home() {
         </div>
       </nav>
       <div>
-        
+        <Tiptap/>
       </div>
     </div>
   )
